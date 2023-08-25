@@ -16,20 +16,21 @@ export type NewMessageFormProps = {
    */
   sendMessage: () => void;
 };
+
 export const NewMessageForm = (props: NewMessageFormProps) => {
   const { newMessage, setNewMessage, sendMessage } = props;
 
   return (
     <form
-      className="p-2 fixed bottom-0 w-full lg:max-w-4xl flex items-center"
+      className="p-2 fixed bottom-10 w-full lg:max-w-4xl flex items-center"
       onSubmit={(evt) => evt.preventDefault()}
     >
       <input
         type="text"
-        className="w-full bg-transparent outline outline-1 rounded-md p-2 pr-10 dark:outline-white dark:text-white"
+        className="w-full bg-white dark:bg-slate-800 border-none outline outline-1 rounded-md p-2 pr-10 outline-gray-300 dark:outline-gray-400 dark:text-white focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 focus:shadow-md"
         value={newMessage}
         onChange={(e) => setNewMessage(e.target.value)}
-        placeholder="Send a message..."
+        placeholder="Send a message... or '/clear' to clear the chat"
       />
       <button
         className="absolute right-3 rounded-lg p-1 text-black dark:text-white hover:bg-gray-300 dark:hover:bg-slate-600"
