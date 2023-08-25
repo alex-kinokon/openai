@@ -62,7 +62,9 @@ export default function HomePage() {
       const storedMessages = JSON.parse(
         localStorage.getItem(MESSAGE_KEY)!
       ) as MessageType[];
-      _setMessages(storedMessages);
+      if (Array.isArray(storedMessages)) {
+        _setMessages(storedMessages);
+      }
     } catch (e) {
       if (process.env.NODE_ENV === "development") {
         console.error(e);

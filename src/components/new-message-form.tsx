@@ -1,5 +1,6 @@
 import { PaperAirplaneIcon } from "@heroicons/react/24/outline";
 import { Dispatch, SetStateAction } from "react";
+import { cx, css } from "@emotion/css";
 
 export type NewMessageFormProps = {
   /**
@@ -22,7 +23,14 @@ export const NewMessageForm = (props: NewMessageFormProps) => {
 
   return (
     <form
-      className="p-2 fixed bottom-10 w-full lg:max-w-4xl flex items-center"
+      className={cx(
+        "p-2 fixed bottom-10 w-full lg:max-w-4xl flex items-center",
+        css`
+          @media (max-width: 640px) {
+            max-width: calc(100vw - 30px);
+          }
+        `
+      )}
       onSubmit={(evt) => evt.preventDefault()}
     >
       <input
